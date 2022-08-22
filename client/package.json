@@ -2,6 +2,7 @@
   "name": "pretzel",
   "version": "0.1.0",
   "private": false,
+  "homepage": "https://glennphil.github.io/pretzel/",
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "@stripe/react-stripe-js": "^1.10.0",
