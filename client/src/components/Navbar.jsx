@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-export default function Navbar() {
-
+export default function Navbar({ query, handleChange }) {
   return (
     <div className="flex flex-row container justify-between p-8">
       <Link to="/">
@@ -14,8 +13,14 @@ export default function Navbar() {
         register
       </Link>
       <button>
-        <span className="material-symbols-outlined">shopping_basket</span>
+        cart
       </button>
+      <input
+        onChange={handleChange}
+        value={query}
+        placeholder="Search.."
+        type="search"
+      />
     </div>
   )
 }

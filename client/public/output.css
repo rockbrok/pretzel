@@ -583,10 +583,6 @@ video {
   }
 }
 
-.absolute {
-  position: absolute;
-}
-
 .flex {
   display: flex;
 }

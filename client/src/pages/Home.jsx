@@ -15,34 +15,22 @@ socket.on('hello', (res) => {
   toast.success(res.message)
 })
 
-export default function Home() {
+export default function Home({ query }) {
   const [products, setProducts] = useState([]);
-  const [query, setQuery] = useState("");
 
   useEffect(() => {
     axios({
       method: 'get',
       url: 'http://localhost:1337/api/products?populate=*',
     }).then((res) => {
-      const posts =  res.data;
+      const posts = res.data;
       setProducts(posts.data)
     })
   }, []);
 
-  const handleChange = (e) => {
-    setQuery(e.target.value);
-    console.log(query)
-  }
-
   return (
     <div className="container">
       <h1>Products</h1>
-
-      <input
-        onChange={handleChange}
-        value={query}
-        placeholder="Search.."
-      />
       <ProductList search={query} />
       {/* <div className="products-container">
         {products.map((product) => (
