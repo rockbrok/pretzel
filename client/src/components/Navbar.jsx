@@ -7,6 +7,12 @@ export default function Navbar() {
       <Link to="/">
         <span className="material-symbols-outlined">store</span>
       </Link>
+      <Link to="/login">
+        login
+      </Link>
+      <Link to="/register">
+        register
+      </Link>
       <button>
         <span className="material-symbols-outlined">shopping_basket</span>
       </button>
