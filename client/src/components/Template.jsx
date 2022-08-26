@@ -4,10 +4,8 @@ import { Link } from "react-router-dom";
 import Sort from "./Sort"
 // utilities
 import Data from "./Data"
-// queries
-import { QUERY_ALL_PRODUCTS } from "../queries/Products";
 
-export default function Template() {
+export default function Template(props) {
   const [sort, setSort] = useState(false);
   const [all, setAll] = useState(true);
   const [roast, setRoast] = useState(false);
@@ -37,11 +35,11 @@ export default function Template() {
 
       <div className="flex flex-row gap-3">
         {price ?
-          <Data /> : null}
+          <Data query={props.price} /> : null}
         {roast ?
-          <Data /> : null}
+          <Data query={props.roast} /> : null}
         {all ?
-          <Data query={QUERY_ALL_PRODUCTS}/> : null}
+          <Data query={props.all} /> : null}
       </div>
     </section>
   )

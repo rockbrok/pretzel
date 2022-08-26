@@ -6,18 +6,17 @@ export default function Sort({ all, setAll, origin, setOrigin, price, setPrice, 
     <section>
       <Search query={query} />
       <div className="flex flex-row gap-3">
-        {all ? "All" : null}
-        {origin ? "By origin" : null}
-        {price ? "By price" : null}
-        {roast ? "By roast" : null}
-        <button onClick={() => setSort(!sort)}><span className="material-symbols-outlined">sort</span></button>
+        {all ? <button onClick={() => setSort(!sort)}><span className="material-symbols-outlined">menu</span>&nbsp;All</button> : null}
+        {origin ? <button onClick={() => setSort(!sort)}><span className="material-symbols-outlined">menu</span>&nbsp;By Region</button> : null}
+        {price ? <button onClick={() => setSort(!sort)}><span className="material-symbols-outlined">sort</span>&nbsp;By Price</button> : null}
+        {roast ? <button onClick={() => setSort(!sort)}><span className="material-symbols-outlined">sort</span>&nbsp;By Roast</button> : null}
       </div>
       {sort ?
         <div className="flex flex-col gap-3">
-          <button onClick={() => setSort(false) & setAll(true) & setOrigin(false) & setPrice(false) & setRoast(false)}>All</button>
-          <button onClick={() => setSort(false) & setOrigin(true) & setAll(false) & setPrice(false) & setRoast(false)}>Origin</button>
-          <button onClick={() => setSort(false) & setOrigin(false) & setAll(false) & setPrice(false) & setRoast(true)}>Roast</button>
-          <button onClick={() => setSort(false) & setOrigin(false) & setAll(false) & setPrice(true) & setRoast(false)}>Price</button>
+          {all ? "" : <button onClick={() => setSort(false) & setAll(true) & setOrigin(false) & setPrice(false) & setRoast(false)}>All</button>}
+          {origin ? "" : <button onClick={() => setSort(false) & setOrigin(true) & setAll(false) & setPrice(false) & setRoast(false)}>By Region</button>}
+          {price ? "" : <button onClick={() => setSort(false) & setOrigin(false) & setAll(false) & setPrice(true) & setRoast(false)}>By Price</button>}
+          {roast ? "" : <button onClick={() => setSort(false) & setOrigin(false) & setAll(false) & setPrice(false) & setRoast(true)}>By Roast</button>}
         </div> : null}
     </section>
   )

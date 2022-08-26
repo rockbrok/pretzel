@@ -7,7 +7,6 @@ import { client } from './utils/client';
 import Home from "./pages/Home";
 import Store from "./pages/Store";
 import Login from "./pages/Login";
-import Register from "./pages/Register";
 import Product from "./pages/Product";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
@@ -43,7 +42,6 @@ export default function App() {
           <Route path="/store" element={<Store query={query} />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
           <Route path="/store/:slug" element={<Product />} />
           {/* Regions */}
           <Route path="/store/south-america" element={<SouthAmerica query={query} />} />

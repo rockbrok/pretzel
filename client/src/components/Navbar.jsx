@@ -30,9 +30,6 @@ export default function Navbar({ query, handleChange }) {
       <Link to="/login">
         login
       </Link>
-      <Link to="/register">
-        register
-      </Link>
     </div>
   )
 }
