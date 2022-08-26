@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "africas",
+  "info": {
+    "singularName": "africa",
+    "pluralName": "africas",
+    "displayName": "Africa"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "true": {
+      "type": "boolean",
+      "required": true
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "africa"
+    }
+  }
+}

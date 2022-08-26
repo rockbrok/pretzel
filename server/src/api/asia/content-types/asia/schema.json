@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "asias",
+  "info": {
+    "singularName": "asia",
+    "pluralName": "asias",
+    "displayName": "Asia"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "true": {
+      "type": "boolean",
+      "required": true
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "asia"
+    }
+  }
+}

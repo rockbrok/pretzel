@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "southamericas",
+  "info": {
+    "singularName": "southamerica",
+    "pluralName": "southamericas",
+    "displayName": "Southamerica"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "true": {
+      "type": "boolean",
+      "required": true
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "southamerica"
+    }
+  }
+}

@@ -10,11 +10,11 @@ export default function Product() {
   useEffect(() => {
     axios({
       method: 'get',
-      url: "http://localhost:1337/api/products?filters[slug]=" + slug + '&populate=*',
+      url: "http://localhost:1337/api/products?filters[slug]=" + slug + '&populate=deep',
     }).then((res) => {
       const posts = res.data;
       setProduct(posts.data)
-      console.log(posts.data)
+      // console.log(posts.data)
     })
   }, [slug])
 
@@ -28,11 +28,15 @@ export default function Product() {
           <div className="product-img-container">
             <img src={`http://localhost:1337${product[0].attributes.images.data[0].attributes.url}`} />
           </div>
+          <p>Origin: {product[0].attributes.origin}</p>
+          <p>Roast: {product[0].attributes.roast}</p>
+          <p>Price: ${product[0].attributes.price}/kg</p>
+          <p>Quantity: {product[0].attributes.quantity}</p>
           <p>{product[0].attributes.description}</p>
           <div className="product-reviews">
             <h2>Reviews ({product[0].attributes.reviews.data.length})</h2>
             {Array.from(product[0].attributes.reviews.data).map((review) => (
-              <div className="product-review" key={product[0].attributes.slug}>
+              <div className="product-review" key={review.id}>
                 <h3>{review.attributes.review_name}</h3>
                 <p>{review.attributes.review}</p>
               </div>

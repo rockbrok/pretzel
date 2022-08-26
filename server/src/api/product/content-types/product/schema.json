@@ -38,6 +38,42 @@
       "type": "uid",
       "targetField": "name",
       "required": true
+    },
+    "origin": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "required": true,
+      "type": "decimal"
+    },
+    "quantity": {
+      "type": "integer",
+      "required": true
+    },
+    "southamerica": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::southamerica.southamerica",
+      "inversedBy": "products"
+    },
+    "asia": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::asia.asia",
+      "inversedBy": "products"
+    },
+    "africa": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::africa.africa",
+      "inversedBy": "products"
+    },
+    "roast": {
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "max": 4
     }
   }
 }
