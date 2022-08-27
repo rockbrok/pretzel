@@ -32,13 +32,34 @@ export const QUERY_ALL_PRODUCTS = gql`
   }
 `;
 
-export const QUERY_HIGH_TO_LOW_PRICE = gql`
-  { 
-    products {
+export const QUERY_PRODUCTS_BY_NAME = gql`
+  query GetAllProducts($input: String!) {
+    products(
+      filters: { name : { containsi: $input}}
+    ) {
       data {
         attributes {
-          name
-          slug
+          price,
+          name,
+          roast,
+          origin,
+          quantity,
+          slug,
+          images {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          reviews {
+            data {
+              attributes {
+                review,
+                review_name
+              }
+            }
+          }
         }
       }
     }

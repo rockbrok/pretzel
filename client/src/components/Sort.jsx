@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-export default function Sort({ all, setAll, origin, setOrigin, price, setPrice, roast, setRoast, sort, setSort, query }) {
+export default function Sort({ search, setSearch, all, setAll, origin, setOrigin, price, setPrice, roast, setRoast, sort, setSort, query }) {
 
   return (
     <section>
-      <Search query={query} />
+      <Search search={search} setSearch={setSearch} />
       <div className="flex flex-row gap-3">
         {all ? <button onClick={() => setSort(!sort)}><span className="material-symbols-outlined">menu</span>&nbsp;All</button> : null}
         {origin ? <button onClick={() => setSort(!sort)}><span className="material-symbols-outlined">menu</span>&nbsp;By Region</button> : null}
@@ -22,9 +22,7 @@ export default function Sort({ all, setAll, origin, setOrigin, price, setPrice, 
   )
 }
 
-const Search = ({ query }) => {
-  const [search, setSearch] = useState("");
-
+const Search = ({ search, setSearch }) => {
   const handleChange = (e) => {
     setSearch(e.target.value);
     console.log(search);

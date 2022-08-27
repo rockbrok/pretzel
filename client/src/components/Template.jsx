@@ -6,6 +6,7 @@ import Sort from "./Sort"
 import Data from "./Data"
 
 export default function Template(props) {
+  const [search, setSearch] = useState("");
   const [sort, setSort] = useState(false);
   const [all, setAll] = useState(true);
   const [roast, setRoast] = useState(false);
@@ -15,6 +16,8 @@ export default function Template(props) {
   return (
     <section className="container">
       <Sort
+        search={search}
+        setSearch={setSearch}
         sort={sort}
         setSort={setSort}
         all={all}
@@ -35,11 +38,11 @@ export default function Template(props) {
 
       <div className="flex flex-row gap-3">
         {price ?
-          <Data query={props.price} /> : null}
+          <Data query={props.price} variables={{ input: search }} /> : null}
         {roast ?
-          <Data query={props.roast} /> : null}
+          <Data query={props.roast} variables={{ input: search }} /> : null}
         {all ?
-          <Data query={props.all} /> : null}
+          <Data query={props.all} variables={{ input: search }} /> : null}
       </div>
     </section>
   )

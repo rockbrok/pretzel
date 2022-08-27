@@ -2,7 +2,9 @@ import { useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
 
 export default function Data(props) {
-  const { data, loading, error } = useQuery(props.query);
+  const { data, loading, error } = useQuery(props.query, {
+    variables: props.variables
+  });
 
   if (loading) {
     return <h1>Data is loading</h1>
