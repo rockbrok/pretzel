@@ -1,9 +1,9 @@
 import { gql } from "@apollo/client";
 
-export const QUERY_ALL_AFRICA_PRODUCTS = gql`
+export const QUERY_ALL_ASIA_PRODUCTS = gql`
   query GetAllProducts($input: String!) {
     products(
-      filters: { africa : {true: { eq: true}} and: [{name: { containsi: $input}}] }
+      filters: { asia : {true: { eq: true}} and: [{name: { containsi: $input}}] }
     ) {
       data {
         attributes {
@@ -13,12 +13,12 @@ export const QUERY_ALL_AFRICA_PRODUCTS = gql`
           origin,
           quantity,
           slug,
-          africa {
+          asia {
             data {
               attributes {
-                true
+              true
               }
-            }
+           }
           },
           images {
             data {
@@ -41,10 +41,10 @@ export const QUERY_ALL_AFRICA_PRODUCTS = gql`
   }
 `;
 
-export const QUERY_AFRICA_LOW_TO_HIGH_ROAST = gql`
+export const QUERY_ASIA_LOW_TO_HIGH_ROAST = gql`
   query GetAllProducts($input: String!) {
     products(
-      filters: { africa : {true: { eq: true}} and: [{name: { containsi: $input}}] }
+      filters: { asia : {true: { eq: true}} and: [{name: { containsi: $input}}] }
       sort: "roast:asc"
     ) {
       data {
@@ -97,10 +97,10 @@ export const QUERY_AFRICA_LOW_TO_HIGH_ROAST = gql`
   }
 `;
 
-export const QUERY_AFRICA_HIGH_TO_LOW_ROAST = gql`
+export const QUERY_ASIA_HIGH_TO_LOW_ROAST = gql`
   query GetAllProducts($input: String!) {
     products(
-      filters: { africa : {true: { eq: true}} and: [{name: { containsi: $input}}] }
+      filters: { asia : {true: { eq: true}} and: [{name: { containsi: $input}}] }
       sort: "roast:desc"
     ) {
       data {
@@ -153,10 +153,10 @@ export const QUERY_AFRICA_HIGH_TO_LOW_ROAST = gql`
   }
 `;
 
-export const QUERY_AFRICA_LOW_TO_HIGH_PRICE = gql`
+export const QUERY_ASIA_LOW_TO_HIGH_PRICE = gql`
   query GetAllProducts($input: String!) {
     products(
-      filters: { africa : {true: { eq: true}} and: [{name: { containsi: $input}}] }
+      filters: { asia : {true: { eq: true}} and: [{name: { containsi: $input}}] }
       sort: "price:asc"
     ) {
       data {
@@ -209,10 +209,10 @@ export const QUERY_AFRICA_LOW_TO_HIGH_PRICE = gql`
   }
 `;
 
-export const QUERY_AFRICA_HIGH_TO_LOW_PRICE = gql`
+export const QUERY_ASIA_HIGH_TO_LOW_PRICE = gql`
   query GetAllProducts($input: String!) {
     products(
-      filters: { africa : {true: { eq: true}} and: [{name: { containsi: $input}}] }
+      filters: { asia : {true: { eq: true}} and: [{name: { containsi: $input}}] }
       sort: "price:desc"
     ) {
       data {

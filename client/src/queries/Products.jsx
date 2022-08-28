@@ -10,6 +10,7 @@ export const QUERY_ALL_PRODUCTS = gql`
           roast,
           origin,
           quantity,
+          region,
           slug,
           images {
             data {
@@ -44,6 +45,7 @@ export const QUERY_PRODUCTS_BY_NAME = gql`
           roast,
           origin,
           quantity,
+          region,
           slug,
           images {
             data {

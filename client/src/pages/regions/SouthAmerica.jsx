@@ -1,51 +1,25 @@
-import { toast } from 'react-toastify';
-import { io } from 'socket.io-client'
-import axios from 'axios'
-import { useState, useEffect } from 'react';
-import StoreTemplate from '../../components/StoreTemplate';
+// components
+import Template from '../../components/Template';
+// queries
+import { 
+  QUERY_ALL_SOUTHAMERICA_PRODUCTS, 
+  QUERY_SOUTHAMERICA_LOW_TO_HIGH_PRICE, 
+  QUERY_SOUTHAMERICA_HIGH_TO_LOW_PRICE,
+  QUERY_SOUTHAMERICA_HIGH_TO_LOW_ROAST,
+  QUERY_SOUTHAMERICA_LOW_TO_HIGH_ROAST 
+} from '../../queries/SouthAmerica';
+
 // styles
 import '../../index.css';
-import 'react-toastify/dist/ReactToastify.css';
 
-// const socket = io('http://localhost:1337');
-
-// socket.on('hello', (res) => {
-//   toast.success(res.message)
-// })
-
-export default function Southamerica({ query }) {
-  const [products, setProducts] = useState([]);
-  const [sort, setSort] = useState(false);
-  const [all, setAll] = useState(true);
-  const [roast, setRoast] = useState(false);
-  const [price, setPrice] = useState(false);
-  const [origin, setOrigin] = useState(false);
-
-  useEffect(() => {
-    axios({
-      method: 'get',
-      url: 'http://localhost:1337/api/southamericas?populate=deep',
-    }).then((res) => {
-      const posts = res.data;
-      setProducts(posts.data[0].attributes.products.data)
-    })
-  }, []);
-
+export default function SouthAmerica() {
   return (
-    <StoreTemplate 
-      query={query}
-      products={products}
-      setProducts={setProducts}
-      sort={sort}
-      setSort={setSort}
-      all={all}
-      setAll={setAll}
-      roast={roast}
-      setRoast={setRoast}
-      price={price}
-      setPrice={setPrice}
-      origin={origin}
-      setOrigin={setOrigin}
+    <Template 
+      all={QUERY_ALL_SOUTHAMERICA_PRODUCTS}
+      priceHighToLow={QUERY_SOUTHAMERICA_HIGH_TO_LOW_PRICE}
+      price={QUERY_SOUTHAMERICA_LOW_TO_HIGH_PRICE}
+      roastHighToLow={QUERY_SOUTHAMERICA_HIGH_TO_LOW_ROAST}
+      roast={QUERY_SOUTHAMERICA_LOW_TO_HIGH_ROAST}
     />
   )
 }

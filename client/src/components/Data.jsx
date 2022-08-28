@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 // styles
 import '../index.css';
 
@@ -22,7 +22,7 @@ export default function Data(props) {
       {data &&
         data.products.data.map((product) => {
           return (
-            <Link className="product" to={product.attributes.slug} key={product.attributes.slug}>
+            <Link className="product" to={Location({product})} key={product.attributes.slug}>
               <h1 className="text-xl uppercase">{product.attributes.name}</h1>
               <div className="flex flex-row justify-between w-full px-3">
                 <img style={{ height: "100px", width: "100px" }} src={`http://localhost:1337${product.attributes.images.data[0].attributes.url}`} alt="coffee" />
@@ -41,7 +41,22 @@ export default function Data(props) {
         })}
     </div>
   )
-}
+};
+
+function Location({product}) {
+  let location = useLocation();
+  let pathname = location.pathname;
+
+  if (pathname === "/store") {
+    return (
+      product.attributes.region + "/" + product.attributes.slug
+    )
+  } else {
+    return (
+      product.attributes.slug
+    )
+  }
+};
 
 const Roast = ({ product }) => {
   if (product.attributes.roast === 1) {
@@ -81,13 +96,13 @@ const Roast = ({ product }) => {
       </RoastRow>
     )
   }
-}
+};
 
 const RoastRow = (props) => (
   <div className="flex flex-row gap-1">
     {props.children}
   </div>
-)
+);
 
 const BlackCircle = () => <div className="rounded-full w-4 h-4 bg-black" />;
 const WhiteCircle = () => <div className="rounded-full w-4 h-4 border-black border-[1px]" />;
